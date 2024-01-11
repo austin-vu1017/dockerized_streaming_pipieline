@@ -98,16 +98,16 @@ def create_cassandra_conn():
 def create_selection_df_from_kafka(spark_df):
     schema = StructType([
         StructField("id", StringType(), False),
-        StructField("first_name", StringType(), False),
-        StructField("last_name", StringType(), False),
-        StructField("gender", StringType(), False),
-        StructField("address", StringType(), False),
-        StructField("post_code", StringType(), False),
-        StructField("email", StringType(), False),
-        StructField("username", StringType(), False),
-        StructField("registered_date", StringType(), False),
-        StructField("phone", StringType(), False),
-        StructField("picture", StringType(), False)
+        StructField("rank", StringType(), False),
+        StructField("symbol", StringType(), False),
+        StructField("supply", StringType(), False),
+        StructField("maxSupply", StringType(), False),
+        StructField("marketCapUsd", StringType(), False),
+        StructField("volumeUsd24Hr", StringType(), False),
+        StructField("priceUsd", StringType(), False),
+        StructField("changePercent24Hr", StringType(), False),
+        StructField("vwap24Hr", StringType(), False),
+        StructField("data_datetime", StringType(), False)
     ])
 
     sel = spark_df.selectExpr("CAST(value AS STRING)") \
